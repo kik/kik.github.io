@@ -2,7 +2,7 @@
 layout: default
 title: 恒等関手の余極限は終対象
 ---
-__定理__: $$\mathcal{C}$$を圏とし、$$\mathrm{id}: \mathcal{C} \to \mathcal{C}$$を恒等関手とする。余極限
+__定理__: $$\mathscr{C}$$を圏とし、$$\mathrm{id}: \mathscr{C} \to \mathscr{C}$$を恒等関手とする。余極限
 
 $$
 (T, \theta) = \varinjlim \mathrm{id}
@@ -12,35 +12,55 @@ $$
 
 __証明__
 
-余極限の定義より、$$\mathcal{C}$$の各対象$$X$$にたいして、$$\theta_X$$は射$$X \to T$$である。あとは、この形の射が一意であることを示せばよい。この$$\theta$$は、任意の$$\mathcal{C}$$の射$$f:X \to Y$$に対して、
+余極限の定義より、$$\mathscr{C}$$の各対象$$X$$にたいして、$$\theta_X$$は射$$X \to T$$である。あとは、この形の射が一意であることを示せばよい。この$$\theta$$は、任意の$$\mathscr{C}$$の射$$f:X \to Y$$に対して、
 
 $$
 \theta_X = \theta_Y \circ f
 $$
 
-を満たす。特に、$$Y$$として$$T$$を選ぶと、任意の射$$f: X \to T$$に対して、
+を満たす。すなわち、以下の図式は可換である。
+
+$$
+\begin{xy}
+\xymatrix {
+X \ar[rr]^f \ar[rd]_{\theta_X} &   & Y \ar[ld]^{\theta_Y} \\
+  & T &
+}
+\end{xy}
+$$
+
+特に、$$Y$$として$$T$$を選ぶと、任意の射$$f: X \to T$$に対して、
 
 $$
 \theta_X = \theta_T \circ f
 $$
 
-が成り立つ。よって、$$\theta_T = \mathrm{id}_T$$を示せば射の一意性が得られる。まず、$$f$$として$$\theta_X$$を選ぶことで次を得る。
+が成り立つ。よって、$$\theta_T = \mathrm{id}_T$$を示せば射の一意性が得られる。
+
+以下の２つの図式はともに可換である。
 
 $$
-\theta_X = \theta_T \circ \theta_X
+\begin{xy}
+\xymatrix {
+X \ar[rr]^f \ar[rd]^{\theta_X} \ar@/_/[rdd]_{\theta_X} &   & Y \ar[ld]_{\theta_Y} \ar@/^/[ldd]^{\theta_Y} \\
+  & T \ar[d]|{\theta_T} & \\
+  & T &
+}
+\end{xy}
+\ \ \ 
+\begin{xy}
+\xymatrix {
+X \ar[rr]^f \ar[rd]^{\theta_X} \ar@/_/[rdd]_{\theta_X} &   & Y \ar[ld]_{\theta_Y} \ar@/^/[ldd]^{\theta_Y} \\
+  & T \ar[d]|{\mathrm{id}_T} & \\
+  & T &
+}
+\end{xy}
 $$
 
-余極限の普遍性から、射$$u: T \to T$$のうち次を満たすものは一意である: 「任意の$$\mathcal{C}$$の対象$$X$$について
+余極限の普遍性から、射$$T \to T$$で上の形の図式を可換にするものは一意であるから、
 
 $$
-\theta_X = u \circ \theta_X
+\theta_T = \mathrm{id}_T
 $$
 
-を満たす」
-
-$$\mathrm{id}_T$$と$$\theta_T$$はともにこの性質を満たすので等しい。証明終わり。
-
-
-
-
-
+となる。証明終わり。
